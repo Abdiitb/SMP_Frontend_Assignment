@@ -1,6 +1,14 @@
-
+import { useState } from "react"
+import { useSendMessage } from "../../hooks/contact/useSendMessage"
 
 function Contact() {
+  const [messageData, setMessageData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
   return (
     <div className="hero bg-transparent flex-grow">
       <div className="hero-content flex-col lg:flex-row-reverse lg:justify-center lg:items-center lg:gap-20">
@@ -22,29 +30,61 @@ function Contact() {
           <div className="card-body">
             <fieldset className="fieldset">
               <div>
-                <input className="input validator w-full" type="text" required placeholder="NAME" />
+                <input 
+                  className="input validator w-full" 
+                  type="text" 
+                  placeholder="NAME"
+                  value={messageData.name}
+                  onChange={(e) => setMessageData((prev) => ({...prev, name: e.target.value}))}
+                  required
+                /> 
                 <div className="validator-hint">Name is required</div>
               </div>
 
               <div>
-                <input className="input validator w-full" type="email" required placeholder="EMAIL" />
+                <input 
+                  className="input validator w-full" 
+                  type="email" 
+                  placeholder="EMAIL"
+                  value={messageData.email}
+                  onChange={(e) => setMessageData((prev) => ({...prev, email: e.target.value}))} 
+                  required 
+                />
                 <div className="validator-hint">Enter valid email address</div>
               </div>
 
               <div>
-                <input className="input validator w-full" type="text" required placeholder="SUBJECT" />
+                <input 
+                  className="input validator w-full" 
+                  type="text" 
+                  placeholder="SUBJECT"
+                  value={messageData.subject}
+                  onChange={(e) => setMessageData((prev) => ({...prev, subject: e.target.value}))} 
+                  required 
+                />
                 <div className="validator-hint">Subject is required</div>
               </div>
 
               <div>
-                <textarea className="textarea validator w-full" placeholder="MESSAGE"></textarea>
+                <textarea 
+                  className="textarea validator w-full" 
+                  placeholder="MESSAGE"
+                  value={messageData.message}
+                  onChange={(e) => setMessageData((prev) => ({...prev, message: e.target.value}))}
+                  required
+                ></textarea>
                 <div className="validator-hint">Message is Empty</div>
               </div>
 
               <div className="flex justify-center">
-                <button className="btn btn-info">SEND MESSAGE</button>
-
+                <button 
+                  className="btn btn-info" 
+                  onClick={() => useSendMessage(messageData)}
+                >
+                  SEND MESSAGE
+                </button>
               </div>
+
             </fieldset>
           </div>
         </div>
