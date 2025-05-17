@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import { useFetchAllBlogs } from '../../hooks/services/useFetchAllBlogs.js'
+import { Link } from 'react-router';
 
 function BlogList() {
     const blogs = useFetchAllBlogs();
@@ -34,11 +34,11 @@ function BlogList() {
     console.log(blogs);
 
     return (
-        <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+        <div className="overflow-x-auto rounded-box border-2 border-black dark:border-green-500 flex-grow">
             <table className="table">
                 {/* head */}
                 <thead>
-                    <tr>
+                    <tr className="dark:text-white text-black">
                         <th></th>
                         <th>Title</th>
                         <th>Description</th>
@@ -52,7 +52,7 @@ function BlogList() {
                             <th>{index + 1}</th>
                             <td>{blog.title}</td>
                             <td>{blog.short_description}</td>
-                            <td><button>View</button></td>
+                            <td><Link to={'/services/blogs/' + blog._id}><button className="cursor-pointer btn bg-green-500">View</button></Link></td>
                         </tr>
                     ))}
 

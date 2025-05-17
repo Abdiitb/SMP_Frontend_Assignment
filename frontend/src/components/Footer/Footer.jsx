@@ -2,11 +2,11 @@ import { Link } from "react-router"
 
 function Footer() {
   return (
-    <footer className="footer footer-horizontal footer-center text-base-content rounded-t-xl p-2 flex flex-col gap-5 border-t-2 border-blue-400">
+    <footer className="footer footer-horizontal footer-center rounded-t-xl p-2 flex flex-col gap-5 border-t-2 dark:border-blue-400 border-black bg-blue-500 text-white dark:bg-black">
       <nav className="grid grid-flow-col gap-4">
-        <Link to="/about" className="link link-hover hover:text-amber-300">About us</Link>
-        <Link to="/contact" className="link link-hover hover:text-amber-300">Contact</Link>
-        <Link to="/services" className="link link-hover hover:text-amber-300">Services</Link>
+        <Link to="/about" className="link link-hover dark:hover:text-amber-300 hover:text-black">About us</Link>
+        <Link to="/contact" className="link link-hover dark:hover:text-amber-300 hover:text-black">Contact</Link>
+        <Link to="/services" className="link link-hover dark:hover:text-amber-300 hover:text-black">Services</Link>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">

@@ -1,9 +1,13 @@
 import { Link, NavLink } from 'react-router';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { themeToggler } from '../../store/themeSlice';
+import { useDispatch } from 'react-redux';
 
 function Header() {
+  const dispatch = useDispatch();
+
   return (
-    <div className="navbar bg-black shadow-sm lg:px-[10%] relative top-0 border-b-2 border-blue-500 rounded-b-xl">
+    <div className="navbar bg-blue-500 dark:bg-black shadow-sm lg:px-[10%] relative top-0 border-b-2 border-black dark:border-blue-500 rounded-b-xl">
       {/* Mobile View */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -25,7 +29,7 @@ function Header() {
             <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
         </div>
-        <Link to="/" className="xl:text-3xl text-xl font-bold">SimpliLearn</Link>
+        <Link to="/" className="xl:text-3xl text-xl font-bold text-amber-300 dark:text-white">SimpliLearn</Link>
       </div>
 
       {/* Desktop View */}
@@ -34,7 +38,7 @@ function Header() {
           <li className='text-xl'>
             <NavLink
               to="/"
-              className={({ isActive }) => `text-xl ${isActive ? "text-amber-300 border-b-2 border-amber-300" : ""}`}
+              className={({ isActive }) => `text-xl ${isActive ? "text-black border-b-2 border-black dark:text-amber-300 dark:border-b-2 dark:border-amber-300" : "text-white"}`}
             >
               Home
             </NavLink>
@@ -43,7 +47,7 @@ function Header() {
             {/* <details> */}
             <NavLink
               to="/services"
-              className={({ isActive }) => `text-xl ${isActive ? "text-amber-300 border-b-2 border-amber-300" : ""}`}
+              className={({ isActive }) => `text-xl ${isActive ? "text-black border-b-2 border-black dark:text-amber-300 dark:border-b-2 dark:border-amber-300" : "text-white"}`}
             >
               Services
             </NavLink>
@@ -56,7 +60,7 @@ function Header() {
           <li>
             <NavLink
               to="/about"
-              className={({ isActive }) => `text-xl ${isActive ? "text-amber-300 border-b-2 border-amber-300" : ""}`}
+              className={({ isActive }) => `text-xl ${isActive ? "text-black border-b-2 border-black dark:text-amber-300 dark:border-b-2 dark:border-amber-300" : "text-white"}`}
             >
               About
             </NavLink>
@@ -64,7 +68,7 @@ function Header() {
           <li>
             <NavLink
               to="/contact"
-              className={({ isActive }) => `text-xl ${isActive ? "text-amber-300 border-b-2 border-amber-300" : ""}`}
+              className={({ isActive }) => `text-xl ${isActive ? "text-black border-b-2 border-black dark:text-amber-300 dark:border-b-2 dark:border-amber-300" : "text-white"}`}
             >
               Contact
             </NavLink>
@@ -73,7 +77,7 @@ function Header() {
       </div>
       <div className="navbar-end">
         
-        <DarkModeIcon className="cursor-pointer" />
+        <DarkModeIcon className="cursor-pointer" onClick={() => dispatch(themeToggler(document.querySelector("html").classList))}/>
         
       </div>
     </div>

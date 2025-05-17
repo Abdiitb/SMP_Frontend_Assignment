@@ -7,16 +7,16 @@ function Course() {
     const course = useFetchCourse(id);
 
   return (
-      <>
+      <div className="flex flex-col flex-grow justify-center items-center">
       {course && Object.keys(course).length !== 0 && (
-          <div key={course._id}>
-          <div>{course.title}</div>
+          <div key={course._id} className="flex flex-col gap-5 w-[80%]">
+          <div className="text-3xl">{course.title}</div>
           <div>{course.short_description}</div>
           <div>{course.description}</div>
-          <div>{course.paid ? course.price : "Free"}</div>
+          <div>Price: {course.paid ? course.price : "Free"}</div>
       </div>
     )}
-    </>
+    </div>
   )
 }
 

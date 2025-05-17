@@ -10,7 +10,7 @@ function Contact() {
   });
 
   return (
-    <div className="hero bg-transparent flex-grow">
+    <div className="hero flex-grow">
       <div className="hero-content flex-col lg:flex-row-reverse lg:justify-center lg:items-center lg:gap-20">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">📬 Get in Touch</h1>
@@ -26,13 +26,13 @@ function Contact() {
             No question is too small — if it matters to you, it matters to us.
           </p>
         </div>
-        <div className="card bg-transparent w-full max-w-sm shrink-0 shadow-2xl border-1 border-green-500">
+        <div className="card w-full max-w-sm shrink-0 shadow-2xl border-1 dark:border-green-500">
           <div className="card-body">
             <fieldset className="fieldset">
               <div>
                 <input 
-                  className="input validator w-full" 
-                  type="text" 
+                  className="input validator w-full bg-transparent focus:outline-black dark:focus:outline-white border-1 border-black dark:border-gray-600" 
+                  type="text"
                   placeholder="NAME"
                   value={messageData.name}
                   onChange={(e) => setMessageData((prev) => ({...prev, name: e.target.value}))}
@@ -43,7 +43,7 @@ function Contact() {
 
               <div>
                 <input 
-                  className="input validator w-full" 
+                  className="input validator w-full bg-transparent focus:outline-black dark:focus:outline-white border-1 border-black dark:border-gray-600" 
                   type="email" 
                   placeholder="EMAIL"
                   value={messageData.email}
@@ -55,7 +55,7 @@ function Contact() {
 
               <div>
                 <input 
-                  className="input validator w-full" 
+                  className="input validator w-full bg-transparent focus:outline-black dark:focus:outline-white border-1 border-black dark:border-gray-600" 
                   type="text" 
                   placeholder="SUBJECT"
                   value={messageData.subject}
@@ -67,7 +67,7 @@ function Contact() {
 
               <div>
                 <textarea 
-                  className="textarea validator w-full" 
+                  className="textarea validator w-full bg-transparent focus:outline-black dark:focus:outline-white border-1 border-black dark:border-gray-600" 
                   placeholder="MESSAGE"
                   value={messageData.message}
                   onChange={(e) => setMessageData((prev) => ({...prev, message: e.target.value}))}
